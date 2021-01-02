@@ -21,16 +21,14 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    useNullAsDefault: true,
     connection: {
       database: 'my_db',
-      user: 'username',
+      user:     'username',
       password: 'password'
     },
     pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foreign_keys = ON", done)
-      },
+      min: 2,
+      max: 10
     },
     migrations: {
       tableName: 'knex_migrations'
@@ -39,5 +37,5 @@ module.exports = {
       directory: "./database/seeds"
     }
   }
-
+  
 }
