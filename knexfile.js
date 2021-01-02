@@ -20,10 +20,12 @@ module.exports = {
   },
 
   production: {
-    client: 'sqlite3',
+    client: 'postgresql',
     useNullAsDefault: true,
     connection: {
-      filename: './database/usersProduction.db3'
+      database: 'my_db',
+      user: 'username',
+      password: 'password'
     },
     pool: {
       afterCreate: (conn, done) => {
@@ -31,7 +33,7 @@ module.exports = {
       },
     },
     migrations: {
-      directory: "./database/migrations"
+      tableName: 'knex_migrations'
     },
     seeds: {
       directory: "./database/seeds"
