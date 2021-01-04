@@ -16,7 +16,7 @@ server.use(cors())
 server.use(express.json())
 
 server.use('/auth', authRouter)
-server.use('/users', verifyToken, verifyAdmin, usersRouter)
+server.use('/users', verifyToken, usersRouter)
 server.use('/items', verifyToken, itemsRouter)
 
 server.get('/', (req, res) => {
