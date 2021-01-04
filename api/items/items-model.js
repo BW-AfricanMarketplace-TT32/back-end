@@ -61,7 +61,7 @@ function findByItemId(id) {
         )
 }
 function findAllByUserId(id) {
-    return db('items as i').where('user_id', id)
+    return db('items as i').where('i.user_id', id)
         .join('users as u', 'u.user_id', 'i.user_id')
         .join('categories as c', 'c.category_id', 'i.category_id')
         .join('locations as l', 'l.location_id', 'i.location_id')
