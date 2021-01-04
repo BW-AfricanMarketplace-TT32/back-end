@@ -84,7 +84,7 @@ router.post('/', verifyAdmin, (req, res) => {
         })
 })
 
-// POST new category
+// POST new category (requires admin)
 router.post('/categories', verifyAdmin, (req, res) => {
     Items.addCategory(req.body)
         .then(newCat => {
@@ -95,7 +95,7 @@ router.post('/categories', verifyAdmin, (req, res) => {
         })
 })
 
-// POST new location
+// POST new location (requires admin)
 router.post('/locations', verifyAdmin, (req, res) => {
     Items.addLocation(req.body)
         .then(newLoc => {
@@ -106,7 +106,7 @@ router.post('/locations', verifyAdmin, (req, res) => {
         })
 })
 
-// PUT edited item info by id
+// PUT edited item info by id (requires admin)
 router.put('/:id', verifyAdmin, (req, res) => {
     Items.update(req.params.id, req.body)
         .then(item => {
@@ -117,7 +117,7 @@ router.put('/:id', verifyAdmin, (req, res) => {
         })
 })
 
-// DELETE item by id
+// DELETE item by id (requires admin)
 router.delete('/:id', verifyAdmin, (req, res) => {
     Items.remove(req.params.id)
         .then(response => {

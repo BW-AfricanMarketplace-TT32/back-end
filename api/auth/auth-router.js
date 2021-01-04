@@ -52,10 +52,6 @@ router.post('/login', (req, res) => {
     }
 })
 
-// GET logout
-// router.get('/logout', (req, res) => {
-// })
-
 function makeToken(user) {
     const payload = {
         subject: user.user_id,
